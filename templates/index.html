@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Face Emotion Detection</title>
+</head>
+<body style="font-family: Arial; margin: 40px;">
+  <h1>😊 Face Emotion Detection</h1>
+
+  <form action="/predict" method="post" enctype="multipart/form-data">
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Upload your photo:</label><br>
+    <input type="file" name="image" accept="image/*" required><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  {% if emotion %}
+    <hr>
+    <h2>Result</h2>
+    <p><b>Name:</b> {{ name }}</p>
+    <p><b>Email:</b> {{ email }}</p>
+    <p><b>Detected Emotion:</b> {{ emotion }}</p>
+    <p><b>Message:</b> {{ message }}</p>
+    <img src="{{ image_path }}" alt="Uploaded image" width="200">
+  {% endif %}
+</body>
+</html>
